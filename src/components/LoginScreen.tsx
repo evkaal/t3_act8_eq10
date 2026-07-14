@@ -9,10 +9,6 @@ import {
   ChevronUp,
 } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════════════════════
-// TYPES & MOCK DATA
-// ═══════════════════════════════════════════════════════════════════════════
-
 type View   = "login" | "dashboard";
 type NavId  = "dashboard" | "inventario" | "red" | "alertas";
 type BloodType = "A+" | "A−" | "B+" | "B−" | "O+" | "O−" | "AB+" | "AB−";
@@ -78,10 +74,6 @@ function fmtDate(date: Date) {
   return date.toLocaleDateString("es-MX", { day:"2-digit", month:"short", year:"numeric" });
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// LOGIN SCREEN (Con control de acceso)
-// ═══════════════════════════════════════════════════════════════════════════
-
 function LoginScreen({ onLogin }: { onLogin: () => void }) {
   const [showPwd, setShowPwd]   = useState(false);
   const [email, setEmail]       = useState("");
@@ -92,7 +84,6 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // Simulamos un retraso de red y luego cambiamos de pantalla
     setTimeout(() => { setLoading(false); onLogin(); }, 1400);
   }
 
@@ -178,10 +169,6 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
     </div>
   );
 }
-
-// ═══════════════════════════════════════════════════════════════════════════
-// DASHBOARD HOME
-// ═══════════════════════════════════════════════════════════════════════════
 
 function DashboardHome() {
   return (
@@ -290,10 +277,6 @@ function DashboardHome() {
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// DASHBOARD CONTENEDOR (Navegación y Cabecera)
-// ═══════════════════════════════════════════════════════════════════════════
-
 function DashboardShell({ onLogout }: { onLogout: () => void }) {
   const [active, setActive] = useState<NavId>("dashboard");
 
@@ -355,12 +338,7 @@ function DashboardShell({ onLogout }: { onLogout: () => void }) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// NÚCLEO DE LA APLICACIÓN (Controlador de Rutas)
-// ═══════════════════════════════════════════════════════════════════════════
-
 export default function App() {
-  // Aquí ocurre la magia del cambio de pantalla
   const [view, setView] = useState<View>("login");
 
   return view === "login"
