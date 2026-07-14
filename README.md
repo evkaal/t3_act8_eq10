@@ -1,16 +1,78 @@
-# React + Vite
+# Sistema de Gestión de Banco de Sangre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción del Proyecto
+Este proyecto consiste en el desarrollo de un sistema web para la gestión de un banco de sangre. Su objetivo es facilitar el control de donaciones, registro de donantes y administración de información relacionada con los tipos sanguíneos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías Utilizadas
 
-## React Compiler
+- React
+- Vite
+- ESLint
+- HMR (Hot Module Replacement)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Configuración del Proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este proyecto utiliza una plantilla base de **React + Vite**, la cual proporciona una configuración mínima funcional.
+
+### Plugins disponibles:
+
+- `@vitejs/plugin-react` → Usa Oxc
+- `@vitejs/plugin-react-swc` → Usa SWC
+
+---
+
+## Compilador de React
+
+El compilador de React no está habilitado por defecto debido a su impacto en el rendimiento en desarrollo. Puede integrarse manualmente si se requiere.
+
+---
+
+## Configuración de ESLint
+
+El proyecto incluye reglas básicas de ESLint.
+
+Para entornos más robustos se recomienda:
+- Usar TypeScript
+- Integrar `typescript-eslint`
+
+---
+
+## Integración de APIs
+
+Para simular funcionalidades reales del sistema (como autenticación y datos de donaciones), se utilizan APIs públicas.
+
+### Autenticación de Usuarios
+
+**Endpoint:**
+```
+POST https://dummyjson.com/auth/login
+```
+
+**Body de ejemplo:**
+```json
+{
+  "username": "emilys",
+  "password": "emilyspass"
+}
+```
+
+Usuarios de prueba:
+https://dummyjson.com/users
+
+La respuesta incluye datos del usuario como nombre, email, imagen y tokens.
+
+---
+
+###  Datos de Donaciones de Sangre
+
+**Endpoint:**
+```
+GET https://api.data.gov.my/data-catalogue?id=blood_donations&limit=10
+```
+
+Este endpoint permite obtener datos reales de donaciones de sangre para pruebas y visualización.
+(Esta api es de un banco de Malasia)
