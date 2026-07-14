@@ -28,10 +28,6 @@ import {
   Loader2,
 } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════════════════════
-// TYPES & DATA
-// ═══════════════════════════════════════════════════════════════════════════
-
 type View = "login" | "dashboard";
 type NavId = "dashboard" | "inventario" | "red" | "alertas";
 type BloodType = "A+" | "A−" | "B+" | "B−" | "O+" | "O−" | "AB+" | "AB−";
@@ -40,7 +36,6 @@ type SortKey = "folio" | "bloodType" | "volume" | "expiry" | "status";
 type SortDir = "asc" | "desc";
 type FilterKey = "all" | "expiring" | "quarantine" | BloodType;
 
-// INTERFAZ PARA EL USUARIO DE LA API (Login)
 interface UserData {
   id: number;
   username: string;
@@ -51,7 +46,6 @@ interface UserData {
   token: string;
 }
 
-// INTERFAZ PARA EL INVENTARIO DE SANGRE
 interface BloodUnit {
   id: number;
   folio: string;
@@ -62,10 +56,9 @@ interface BloodUnit {
   hospital: string;
 }
 
-const TODAY = new Date(2026, 6, 14); // 14 de Julio de 2026
+const TODAY = new Date(2026, 6, 14);
 const d = (days: number) => new Date(TODAY.getTime() + days * 86_400_000);
 
-// Fallback Data por si la API falla
 const RAW_DATA: BloodUnit[] = [
   {
     id: 1,
@@ -219,10 +212,6 @@ function fmtDate(date: Date) {
   });
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// COMPONENTES DE INTERFAZ
-// ═══════════════════════════════════════════════════════════════════════════
-
 function PlaceholderSection({
   title,
   icon: Icon,
@@ -256,18 +245,15 @@ function InventoryTable() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
-  // 1. CONSUMO DE API CON ADAPTADOR
   useEffect(() => {
     async function fetchBloodData() {
       try {
-        // Pedimos 28 registros (en lugar de 10) para que la paginación de DonaVida luzca bien
         const response = await fetch(
           "https://api.data.gov.my/data-catalogue?id=blood_donations&limit=28",
         );
         if (!response.ok) throw new Error("Error en la red");
         const result = await response.json();
 
-        // Adaptador (Mapper): Moldea los datos del gobierno de Malasia al diseño de DonaVida
         const mappedData: BloodUnit[] = result.map((item: any, i: number) => {
           const types: BloodType[] = [
             "A+",
@@ -301,7 +287,7 @@ function InventoryTable() {
         setInventoryData(mappedData);
       } catch (error) {
         console.error("Error consumiendo la API:", error);
-        setInventoryData(RAW_DATA); // Fallback en caso de error
+        setInventoryData(RAW_DATA); 
       } finally {
         setLoadingApi(false);
       }
@@ -1282,10 +1268,6 @@ function DashboardShell({
     </div>
   );
 }
-
-// ═══════════════════════════════════════════════════════════════════════════
-// NÚCLEO DE LA APLICACIÓN
-// ═══════════════════════════════════════════════════════════════════════════
 
 export default function App() {
   const [view, setView] = useState<View>("login");
