@@ -7,7 +7,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  // ¡Aquí está la pieza que evita que la librería de íconos colapse!
   optimizeDeps: {
     exclude: ['lucide-react']
   }
