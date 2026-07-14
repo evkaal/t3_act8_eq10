@@ -1,4 +1,15 @@
 # Sistema de Gestión de Banco de Sangre
+**Institución:** Instituto Tecnológico de Oaxaca (ITO)  
+**Proyecto:**  Banco de sangre  
+**Materia/Módulo:**  Programación Web  
+**Integrantes del Equipo:**
+*   Jimenez Mendoza Eduardo
+*   Hernández Uvera Azael  
+
+**Profesor:** Martinez Nieto Adelina  
+**Grupo:** 7SD  
+
+---
 
 ## Descripción del Proyecto
 Este proyecto consiste en el desarrollo de un sistema web para la gestión de un banco de sangre. Su objetivo es facilitar el control de donaciones, registro de donantes y administración de información relacionada con los tipos sanguíneos.
