@@ -83,7 +83,7 @@ export default function Login({ onLogin }) {
             )}
 
             <div className="mb-5">
-              <label className="block text-[#1B2333] text-[13px] font-semibold mb-2 tracking-tight">Usuario (API DummyJSON)</label>
+              <label className="block text-[#1B2333] text-[13px] font-semibold mb-2 tracking-tight">Usuario</label>
               <div className="flex items-center bg-white rounded-xl border border-[#D4D8E1]">
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="ej. emilys" className="flex-1 px-4 py-[14px] text-[#1B2333] placeholder:text-[#B0B8C4] bg-transparent outline-none text-[14px] rounded-xl" />
               </div>
