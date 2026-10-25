@@ -1,0 +1,256 @@
+.login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+}
+
+/* ---------- Panel izquierdo ---------- */
+.login__hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+}
+
+.login__ring {
+  position: absolute;
+  left: -280px;
+  bottom: -240px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 80px rgba(255, 255, 255, 0.02),
+    0 0 0 160px rgba(255, 255, 255, 0.02);
+}
+
+.login__dot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.login__dot--teal {
+  top: 21%;
+  right: 6%;
+  width: 9px;
+  height: 9px;
+  background: var(--teal);
+  opacity: 0.7;
+}
+.login__dot--blue {
+  bottom: 18%;
+  right: 20%;
+  width: 5px;
+  height: 5px;
+  background: var(--sky);
+}
+
+.login__hero-content {
+  position: relative;
+  max-width: 520px;
+}
+
+.login__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  color: #fff;
+}
+.login__title span {
+  color: var(--teal);
+}
+
+.login__subtitle {
+  margin: 26px 0 0;
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--on-navy);
+}
+
+/* ---------- Panel derecho ---------- */
+.login__panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.login__form {
+  width: 100%;
+  max-width: 430px;
+}
+
+.login__form-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+.login__form-sub {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.field {
+  margin-top: 22px;
+}
+.field--first {
+  margin-top: 34px;
+}
+
+.field__label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--label);
+}
+
+.field__error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fff;
+  color: var(--muted);
+}
+.input:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+}
+.input--error {
+  border-color: var(--danger);
+}
+.input input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text);
+}
+.input input::placeholder {
+  color: rgba(23, 32, 51, 0.5);
+}
+
+.input__toggle {
+  display: grid;
+  place-items: center;
+  padding: 7px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.input__toggle:hover {
+  background: var(--bg);
+}
+
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  cursor: pointer;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 20px 0 26px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.remember input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--blue);
+}
+
+.alert {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  box-shadow: 0 7px 7.5px rgba(29, 78, 216, 0.16);
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--blue-dark);
+}
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login__help {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--soft);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+  .login__hero {
+    display: none;
+  }
+}
