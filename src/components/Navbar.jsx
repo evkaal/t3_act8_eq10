@@ -1,24 +1,42 @@
-// src/components/Navbar.jsx
+import { useLocation } from "react-router-dom";
+import { Bell, LogOut } from "lucide-react";
+import Avatar from "./Avatar";
+
+const titles = {
+  "/": "Inicio",
+  "/catalogo": "Catálogo",
+  "/prestamos": "Mis préstamos",
+};
+
 export default function Navbar({ user, onLogout }) {
+  const { pathname } = useLocation();
+  const current = titles[pathname] ?? "Inicio";
+
   return (
-    <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', backgroundColor: '#fff', borderBottom: '1px solid #ddd' }}>
-      <h2>Dashboard del Sistema</h2>
-      
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        {user?.image && (
-          <img 
-            src={user.image} 
-            alt="Perfil" 
-            style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} 
-          />
-        )}
-        <span>{user?.firstName || user?.username || 'Usuario'}</span>
-        
-        <button 
-          onClick={onLogout}
-          style={{ padding: '6px 12px', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-        >
-          Cerrar Sesión
+    <header className="navbar">
+      <nav className="navbar__breadcrumb" aria-label="Ruta">
+        <span>Biblioteca</span>
+        <span className="navbar__sep">/</span>
+        <strong>{current}</strong>
+      </nav>
+
+      <div className="navbar__right">
+        <button type="button" className="navbar__bell" aria-label="Notificaciones">
+          <Bell size={18} />
+          <span className="navbar__bell-dot" />
+        </button>
+
+        <div className="navbar__user">
+          <Avatar user={user} />
+          <div className="navbar__user-info">
+            <strong>{user.firstName} {user.lastName}</strong>
+            <span>Lector</span>
+          </div>
+        </div>
+
+        <button type="button" className="navbar__logout" onClick={onLogout}>
+          <LogOut size={16} />
+          Cerrar sesión
         </button>
       </div>
     </header>
