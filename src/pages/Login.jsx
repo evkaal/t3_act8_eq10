@@ -14,7 +14,7 @@ export default function Login({ onLoginSuccess }) {
 
     // Validación previa: campos vacíos
     if (!username.trim() || !password.trim()) {
-      setError('Por favor, completa todos los campos.');
+      setError('Por favor, completa todos los campos. o si no habará un error de validación.');
       return;
     }
 
