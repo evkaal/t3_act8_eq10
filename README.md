@@ -14,7 +14,7 @@ Para la obtención de los datos del catálogo de libros, la aplicación consume 
 
 ##  Despliegue en el VPS
 Puedes acceder a la versión en producción desplegada en nuestro servidor virtual privado (VPS) a través del siguiente enlace:
-* **Link del proyecto desplegado:** [http://tu-ip-o-dominio.com](http://tu-ip-o-dominio.com)
+* **Link del proyecto desplegado:** (http://148.113.144.30/t3_act8_eq10/)
 
 ---
 
