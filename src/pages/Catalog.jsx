@@ -6,6 +6,7 @@ import Table from "../components/Table";
 import Pagination from "../components/Pagination";
 import useDebounce from "../hooks/useDebounce";
 import { fetchBooks } from "../services/booksService";
+import { createLoan, getLoans } from "../services/loansService";
 import "./Catalog.css";
 
 const LIMITS = [10, 20, 40, 50];
@@ -118,6 +119,16 @@ export default function Catalog() {
     return () => controller.abort();
   }, [search, genre, availability, page, limit, reloadKey]);
 
+const handleBorrowBook = (book) => {
+    try {
+      createLoan(book);
+      alert(`¡Has solicitado con éxito el libro "${book.title}"!`);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+
   return (
     <>
       <PageHeader
@@ -135,10 +146,7 @@ export default function Catalog() {
           Exportar
         </button>
         {/* Se conecta al modal de "agregar" en el Paso 3B */}
-        <button type="button" className="btn btn--primary">
-          <Plus size={18} />
-          Nuevo libro
-        </button>
+       
       </PageHeader>
 
       <section className="catalog-card">
@@ -183,6 +191,8 @@ export default function Catalog() {
           loading={loading}
           error={error}
           onRetry={() => setReloadKey((k) => k + 1)}
+          onBorrow={handleBorrowBook
+          }
         />
 
         <Pagination

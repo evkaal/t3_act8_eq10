@@ -1,4 +1,4 @@
-import { MoreHorizontal } from "lucide-react";
+import { Plus } from "lucide-react";
 
 function initials(title) {
   return title
@@ -10,7 +10,7 @@ function initials(title) {
     .toUpperCase();
 }
 
-export default function Table({ books, loading, error, onRetry }) {
+export default function Table({ books, loading, error, onRetry, onBorrow }) {
   const renderBody = () => {
     if (loading) {
       return (
@@ -47,7 +47,7 @@ export default function Table({ books, loading, error, onRetry }) {
     }
 
     return books.map((book) => (
-      <tr key={book.id}>
+      <tr key={book.id || book.code}>
         <td className="table__code">{book.code}</td>
         <td>
           <div className="book">
@@ -70,9 +70,15 @@ export default function Table({ books, loading, error, onRetry }) {
           </span>
         </td>
         <td className="table__actions">
-          {/* En el Paso 3B este boton abre el menu Editar / Eliminar */}
-          <button type="button" className="icon-btn" aria-label="Acciones">
-            <MoreHorizontal size={18} />
+          {/* Botón para Crear el préstamo */}
+          <button
+            type="button"
+            className="btn btn--primary"
+            style={{ padding: "0.3rem 0.6rem", fontSize: "0.85rem", display: "flex", alignItems: "center", gap: "4px" }}
+            onClick={() => onBorrow && onBorrow(book)}
+          >
+            <Plus size={16} />
+            Prestar
           </button>
         </td>
       </tr>

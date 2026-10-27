@@ -1,6 +1,9 @@
-import { Calendar, ChevronDown, Users, TrendingUp } from "lucide-react";
+import { Calendar, ChevronDown, Users, TrendingUp, Book } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import "./Dashboard.css";
+
+
+
 
 // Datos de ejemplo; mas adelante pueden salir del catalogo real
 const stats = [

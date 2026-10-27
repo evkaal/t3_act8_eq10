@@ -1,16 +1,25 @@
-# React + Vite
+# 📚 Sistema de Gestión de Biblioteca (Actividad 8)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada en **React + Vite** que permite consultar un catálogo de libros mediante una API de terceros de solo lectura, implementando un sistema local basado en **localStorage** para cubrir el flujo completo de un CRUD de préstamos (Crear, Leer, Actualizar y Borrar).
 
-Currently, two official plugins are available:
+## 👥 Integrantes del Equipo
+* **Integrante 1:** Garcia Cisneros Jonathan Julian 
+* **Integrante 2:** Jiménez Mendoza Eduardo
+* **Equipo:** EQ10
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔌 API de Terceros Utilizada
+Para la obtención de los datos del catálogo de libros, la aplicación consume la siguiente API:
+* **API Elegida:** Open Library API (o especifica aquí el nombre exacto de la API que utilizaron en tu servicio `booksService.js`).
+* **Uso:** Consulta pública de libros, filtrado por género/disponibilidad y paginación en tiempo real.
 
-## React Compiler
+## 🚀 Despliegue en el VPS
+Puedes acceder a la versión en producción desplegada en nuestro servidor virtual privado (VPS) a través del siguiente enlace:
+* **Link del proyecto desplegado:** [http://tu-ip-o-dominio.com](http://tu-ip-o-dominio.com)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías y Características
+* **React 18** con enrutamiento (`react-router-dom`).
+* **Icons:** `lucide-react`.
+* **Persistencia Local:** Uso de `localStorage` para simular la gestión de préstamos (Creación, Edición de notas, Listado y Devolución) debido a las restricciones de la API externa de solo lectura.
+* **Estilos:** Diseño responsivo adaptado para la gestión bibliotecaria.
