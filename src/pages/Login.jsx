@@ -17,7 +17,7 @@ export default function Login({ onLogin }) {
     const newErrors = {};
 
     if (!username.trim()) {
-      newErrors.username = "Ingresa tu usuario o correo.";
+      newErrors.username = "Ingresa tu usuario o correo o si no te va cargar la verga";
     } else if (username.trim().length < 3) {
       newErrors.username = "Debe tener al menos 3 caracteres.";
     }
