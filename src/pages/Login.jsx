@@ -69,7 +69,7 @@ export default function Login({ onLogin }) {
           </h1>
           <p className="login__subtitle">
             Un solo espacio para consultar libros, seguir tus préstamos y
-            encontrar lo que buscas en la biblioteca..
+            encontrar lo que buscas en la biblioteca...
           </p>
         </div>
       </section>
